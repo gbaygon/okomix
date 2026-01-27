@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ökomix - Yeso Agrícola 94% y Dolomita de alta pureza. Mejore el rendimiento de sus cultivos con minerales de origen natural. Exportamos a Mercosur y el mundo.">
+    <meta name="keywords" content="yeso agrícola, dolomita, fertilizantes naturales, corrector de suelos, Argentina, exportación, Mercosur">
+    <title>Ökomix | Yeso Agrícola 94% y Dolomita Premium</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tierra': {
+                            50: '#faf6f1',
+                            100: '#f0e6d8',
+                            200: '#e0ccb0',
+                            300: '#ccab80',
+                            400: '#b8895a',
+                            500: '#a67542',
+                            600: '#8f5f36',
+                            700: '#74492e',
+                            800: '#5f3c2a',
+                            900: '#503326',
+                        },
+                        'campo': {
+                            50: '#f4f9f4',
+                            100: '#e6f2e6',
+                            200: '#cee5cf',
+                            300: '#a6d0a8',
+                            400: '#76b379',
+                            500: '#539456',
+                            600: '#407943',
+                            700: '#356138',
+                            800: '#2d4e2f',
+                            900: '#264028',
+                        },
+                        'oro': {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        },
+                        'mineral': {
+                            50: '#f8f9fa',
+                            100: '#e9ecef',
+                            200: '#dee2e6',
+                            300: '#ced4da',
+                            400: '#adb5bd',
+                            500: '#6c757d',
+                            600: '#495057',
+                            700: '#343a40',
+                            800: '#212529',
+                            900: '#0d1117',
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['Bebas Neue', 'sans-serif'],
+                        'body': ['Source Sans 3', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .font-display {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        /* Hero background with overlay */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(13, 17, 23, 0.92) 0%, rgba(45, 78, 47, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Grain texture overlay */
+        .grain-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        /* Animated gradient border */
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(135deg, #f59e0b, #539456, #a67542);
+            padding: 3px;
+            border-radius: 12px;
+        }
+
+        .gradient-border-inner {
+            background: #0d1117;
+            border-radius: 10px;
+        }
+
+        /* Stats counter animation */
+        .stat-number {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Product cards hover */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* WhatsApp button pulse */
+        @keyframes pulse-green {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+        }
+
+        .whatsapp-pulse {
+            animation: pulse-green 2s infinite;
+        }
+
+        /* Infographic items */
+        .benefit-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .benefit-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #fbbf24;
+            font-weight: bold;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Scroll indicator */
+        @keyframes bounce-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        .scroll-indicator {
+            animation: bounce-down 2s infinite;
+        }
+
+        /* Section divider */
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            height: 2px;
+        }
+    </style>
+</head>
+
+<body class="bg-mineral-900 text-white" x-data="{ mobileMenuOpen: false, formSubmitted: false }">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-mineral-900/95 backdrop-blur-md border-b border-mineral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2">
+                    <div class="w-10 h-10 md:w-12 md:h-12 relative">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <defs>
+                                <linearGradient id="logoGrad1" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#2E5930"/>
+                                    <stop offset="100%" style="stop-color:#4A7C4E"/>
+                                </linearGradient>
+                                <linearGradient id="logoGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#B8860B"/>
+                                    <stop offset="100%" style="stop-color:#D4A017"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Hexágonos/cristales minerales formando flecha ascendente -->
+                            <!-- Base mineral (dorado) -->
+                            <path d="M12 32L24 38L36 32L36 24L24 18L12 24Z" fill="url(#logoGrad2)"/>
+                            <!-- Capa media (verde oscuro) -->
+                            <path d="M14 26L24 31L34 26L34 20L24 14L14 20Z" fill="url(#logoGrad1)"/>
+                            <!-- Punta superior (verde claro) - flecha de crecimiento -->
+                            <path d="M18 18L24 8L30 18L24 22Z" fill="#4A7C4E"/>
+                            <!-- Brillo/highlight -->
+                            <path d="M24 8L27 14L24 12L21 14Z" fill="#6B9E6F" opacity="0.8"/>
+                            <!-- Líneas de estructura cristalina -->
+                            <path d="M24 18V31M14 20L24 14L34 20" stroke="#1a3d1c" stroke-width="0.5" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-display text-2xl md:text-3xl text-white tracking-wide">ÖKOMIX</span>
+                        <span class="text-[8px] md:text-[9px] text-campo-400 tracking-[0.2em] font-medium">MINERALES AGRÍCOLAS</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#productos" class="text-mineral-300 hover:text-oro-400 transition-colors font-medium">Productos</a>
+                    <a href="#beneficios" class="text-mineral-300 hover:text-oro-400 transition-colors font-medium">Beneficios</a>
+                    <a href="#exportacion" class="text-mineral-300 hover:text-oro-400 transition-colors font-medium">Exportación</a>
+                    <a href="#contacto" class="bg-oro-500 hover:bg-oro-600 text-mineral-900 px-6 py-2.5 rounded-lg font-semibold transition-all hover:scale-105">
+                        Contactar
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 text-white">
+                    <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg x-show="mobileMenuOpen" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-cloak
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             class="mobile-menu md:hidden bg-mineral-800/98 border-b border-mineral-700">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#productos" @click="mobileMenuOpen = false" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Productos</a>
+                <a href="#beneficios" @click="mobileMenuOpen = false" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Beneficios</a>
+                <a href="#exportacion" @click="mobileMenuOpen = false" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Exportación</a>
+                <a href="#contacto" @click="mobileMenuOpen = false" class="block py-3 px-4 bg-oro-500 text-mineral-900 rounded-lg text-center font-semibold">Contactar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg relative min-h-screen flex items-center grain-overlay">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center gap-2 bg-campo-600/30 border border-campo-500/50 rounded-full px-4 py-2 mb-6">
+                        <span class="w-2 h-2 bg-campo-400 rounded-full animate-pulse"></span>
+                        <span class="text-campo-300 text-sm font-medium">Minerales 100% Naturales</span>
+                    </div>
+
+                    <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white leading-none mb-6">
+                        TRANSFORME<br>
+                        <span class="text-oro-400">SU CAMPO</span><br>
+                        CON ÖKOMIX
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-mineral-300 mb-8 max-w-xl leading-relaxed">
+                        Producimos <strong class="text-white">Yeso Agrícola al 94%</strong> y <strong class="text-white">Dolomita de alta pureza</strong> para maximizar el rendimiento de sus cultivos. Soluciones naturales para suelos argentinos y el mundo.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#productos" class="bg-oro-500 hover:bg-oro-400 text-mineral-900 px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 text-center">
+                            Ver Productos
+                        </a>
+                        <a href="#contacto" class="border-2 border-white/30 hover:border-oro-400 hover:text-oro-400 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all text-center">
+                            Solicitar Cotización
+                        </a>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" class="hidden lg:block">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-oro-400/20 to-campo-500/20 rounded-3xl blur-2xl"></div>
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Campo de cultivo próspero"
+                             class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]">
+
+                        <!-- Floating stats card -->
+                        <div class="absolute -bottom-6 -left-6 bg-mineral-800/95 backdrop-blur border border-mineral-700 rounded-xl p-4 shadow-xl">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-campo-500/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-campo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-white">+35%</div>
+                                    <div class="text-sm text-mineral-400">Rendimiento promedio</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+            <svg class="w-6 h-6 text-oro-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-mineral-800 py-12 md:py-16 border-y border-mineral-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="font-display text-4xl md:text-5xl lg:text-6xl stat-number">94%</div>
+                    <div class="text-mineral-400 mt-2 text-sm md:text-base">Pureza Yeso Agrícola</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="font-display text-4xl md:text-5xl lg:text-6xl stat-number">+500</div>
+                    <div class="text-mineral-400 mt-2 text-sm md:text-base">Productores Confían</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="font-display text-4xl md:text-5xl lg:text-6xl stat-number">15+</div>
+                    <div class="text-mineral-400 mt-2 text-sm md:text-base">Años de Experiencia</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="font-display text-4xl md:text-5xl lg:text-6xl stat-number">5</div>
+                    <div class="text-mineral-400 mt-2 text-sm md:text-base">Países de Exportación</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="py-16 md:py-24 bg-mineral-900 relative grain-overlay">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                <span class="text-oro-400 font-semibold tracking-wider uppercase text-sm">Nuestros Productos</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-white mt-3">MINERALES DE ALTA PUREZA</h2>
+                <p class="text-mineral-400 mt-4 max-w-2xl mx-auto text-lg">
+                    Soluciones naturales certificadas para optimizar el rendimiento de sus cultivos
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Yeso Agrícola -->
+                <div class="product-card gradient-border" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gradient-border-inner p-6 md:p-8">
+                        <div class="flex items-start justify-between mb-6">
+                            <div>
+                                <span class="inline-block bg-oro-500/20 text-oro-400 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    MÁS VENDIDO
+                                </span>
+                                <h3 class="font-display text-3xl md:text-4xl text-white">YESO AGRÍCOLA</h3>
+                                <p class="text-oro-400 font-bold text-xl mt-1">94% de Pureza</p>
+                            </div>
+                            <div class="w-16 h-16 bg-gradient-to-br from-tierra-400 to-tierra-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <!-- Ícono Yeso/Cristal -->
+                                <svg viewBox="0 0 32 32" fill="none" class="w-9 h-9">
+                                    <path d="M16 4L6 12L10 28H22L26 12L16 4Z" fill="#fff" opacity="0.9"/>
+                                    <path d="M16 4L12 14L16 28L20 14L16 4Z" fill="#fef3c7"/>
+                                    <path d="M6 12L12 14L10 28L6 12Z" fill="#fde68a"/>
+                                    <path d="M26 12L20 14L22 28L26 12Z" fill="#fcd34d"/>
+                                    <path d="M16 4L12 14M16 4L20 14M12 14L16 28M20 14L16 28M6 12L12 14M26 12L20 14" stroke="#92400e" stroke-width="0.5"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <p class="text-mineral-300 mb-6 leading-relaxed">
+                            Sulfato de Calcio de origen natural. La fuente más económica y ecológica de <strong class="text-white">Azufre (16.7%)</strong> y <strong class="text-white">Calcio (21%)</strong> del mercado.
+                        </p>
+
+                        <!-- Composition -->
+                        <div class="bg-mineral-800/50 rounded-xl p-4 mb-6">
+                            <h4 class="text-sm font-semibold text-mineral-400 uppercase mb-3">Composición</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-white text-sm">Calcio (Ca)</span>
+                                        <span class="text-oro-400 font-bold">21%</span>
+                                    </div>
+                                    <div class="h-2 bg-mineral-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-oro-500 to-oro-400 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-white text-sm">Azufre (S)</span>
+                                        <span class="text-campo-400 font-bold">16.7%</span>
+                                    </div>
+                                    <div class="h-2 bg-mineral-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-campo-500 to-campo-400 rounded-full" style="width: 55%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Benefits -->
+                        <div class="space-y-3 mb-6">
+                            <h4 class="text-sm font-semibold text-mineral-400 uppercase">Beneficios Principales</h4>
+                            <div class="grid gap-2">
+                                <div class="benefit-item text-mineral-300 text-sm">Corrige suelos sódicos y compactados</div>
+                                <div class="benefit-item text-mineral-300 text-sm">No modifica el pH del suelo</div>
+                                <div class="benefit-item text-mineral-300 text-sm">Mejora infiltración y retención de agua</div>
+                                <div class="benefit-item text-mineral-300 text-sm">Aumenta disponibilidad de fósforo</div>
+                                <div class="benefit-item text-mineral-300 text-sm">Mejora estructura del suelo</div>
+                            </div>
+                        </div>
+
+                        <!-- Presentation -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Granel</span>
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Big Bag 1000kg</span>
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Bolsa 40kg</span>
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Granulado</span>
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Polvo</span>
+                        </div>
+
+                        <a href="#contacto" class="block w-full bg-oro-500 hover:bg-oro-400 text-mineral-900 py-3 rounded-lg font-bold text-center transition-all hover:scale-[1.02]">
+                            Solicitar Cotización
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dolomita -->
+                <div class="product-card gradient-border" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gradient-border-inner p-6 md:p-8">
+                        <div class="flex items-start justify-between mb-6">
+                            <div>
+                                <span class="inline-block bg-campo-500/20 text-campo-400 text-xs font-bold px-3 py-1 rounded-full mb-3">
+                                    PREMIUM
+                                </span>
+                                <h3 class="font-display text-3xl md:text-4xl text-white">DOLOMITA</h3>
+                                <p class="text-campo-400 font-bold text-xl mt-1">Alta Pureza</p>
+                            </div>
+                            <div class="w-16 h-16 bg-gradient-to-br from-campo-400 to-campo-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <!-- Ícono Dolomita/Roca -->
+                                <svg viewBox="0 0 32 32" fill="none" class="w-9 h-9">
+                                    <path d="M4 26L10 10L16 6L22 10L28 26H4Z" fill="#fff" opacity="0.9"/>
+                                    <path d="M10 10L14 26H4L10 10Z" fill="#e6f2e6"/>
+                                    <path d="M16 6L10 10L14 26H18L22 10L16 6Z" fill="#cee5cf"/>
+                                    <path d="M22 10L18 26H28L22 10Z" fill="#a6d0a8"/>
+                                    <path d="M10 10L16 6L22 10" stroke="#2d4e2f" stroke-width="1" stroke-linejoin="round"/>
+                                    <path d="M4 26H28" stroke="#2d4e2f" stroke-width="1"/>
+                                    <path d="M10 10L14 26M22 10L18 26" stroke="#2d4e2f" stroke-width="0.5"/>
+                                    <!-- Detalles de capas minerales -->
+                                    <path d="M7 20H13M19 20H25" stroke="#356138" stroke-width="0.75" stroke-linecap="round"/>
+                                    <path d="M8 23H12M20 23H24" stroke="#356138" stroke-width="0.75" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <p class="text-mineral-300 mb-6 leading-relaxed">
+                            Carbonato de Calcio y Magnesio de origen natural. Equilibrador de bases para un óptimo desarrollo de cultivos con <strong class="text-white">CaO 32.79%</strong> y <strong class="text-white">MgO 19.97%</strong>.
+                        </p>
+
+                        <!-- Composition -->
+                        <div class="bg-mineral-800/50 rounded-xl p-4 mb-6">
+                            <h4 class="text-sm font-semibold text-mineral-400 uppercase mb-3">Composición</h4>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-white text-sm">CaO</span>
+                                        <span class="text-oro-400 font-bold">32.79%</span>
+                                    </div>
+                                    <div class="h-2 bg-mineral-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-oro-500 to-oro-400 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-white text-sm">MgO</span>
+                                        <span class="text-campo-400 font-bold">19.97%</span>
+                                    </div>
+                                    <div class="h-2 bg-mineral-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-gradient-to-r from-campo-500 to-campo-400 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Benefits -->
+                        <div class="space-y-3 mb-6">
+                            <h4 class="text-sm font-semibold text-mineral-400 uppercase">Beneficios Principales</h4>
+                            <div class="grid gap-2">
+                                <div class="benefit-item text-mineral-300 text-sm">Corrige acidez del suelo (eleva pH)</div>
+                                <div class="benefit-item text-mineral-300 text-sm">Magnesio esencial para fotosíntesis</div>
+                                <div class="benefit-item text-mineral-300 text-sm">Aumenta actividad microbiana</div>
+                                <div class="benefit-item text-mineral-300 text-sm">Mejora absorción de fósforo y nitrógeno</div>
+                                <div class="benefit-item text-mineral-300 text-sm">Favorece nodulación en leguminosas</div>
+                            </div>
+                        </div>
+
+                        <!-- Presentation -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Granel</span>
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Big Bag 1000kg</span>
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Bolsa 40kg</span>
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Granulado</span>
+                            <span class="bg-mineral-700 text-mineral-300 text-xs px-3 py-1.5 rounded-lg">Polvo</span>
+                        </div>
+
+                        <a href="#contacto" class="block w-full bg-campo-500 hover:bg-campo-400 text-white py-3 rounded-lg font-bold text-center transition-all hover:scale-[1.02]">
+                            Solicitar Cotización
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="py-16 md:py-24 bg-gradient-to-b from-mineral-800 to-mineral-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                <span class="text-oro-400 font-semibold tracking-wider uppercase text-sm">Por qué elegirnos</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-white mt-3">BENEFICIOS PARA SU CAMPO</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-mineral-800/50 border border-mineral-700 rounded-2xl p-6 md:p-8 hover:border-oro-500/50 transition-all" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 bg-oro-500/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-oro-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">100% Natural y Ecológico</h3>
+                    <p class="text-mineral-400 leading-relaxed">Minerales de origen natural sin químicos agregados. Aptos para cultivos orgánicos y agricultura sustentable.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-mineral-800/50 border border-mineral-700 rounded-2xl p-6 md:p-8 hover:border-oro-500/50 transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-campo-500/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-campo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Mayor Rendimiento</h3>
+                    <p class="text-mineral-400 leading-relaxed">Incremento comprobado en la productividad de cultivos gracias a la mejora en la estructura y nutrición del suelo.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="bg-mineral-800/50 border border-mineral-700 rounded-2xl p-6 md:p-8 hover:border-oro-500/50 transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-tierra-500/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-tierra-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Costo Eficiente</h3>
+                    <p class="text-mineral-400 leading-relaxed">La fuente más económica de calcio, azufre y magnesio del mercado. Maximice su inversión en fertilización.</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="bg-mineral-800/50 border border-mineral-700 rounded-2xl p-6 md:p-8 hover:border-oro-500/50 transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Múltiples Presentaciones</h3>
+                    <p class="text-mineral-400 leading-relaxed">Disponible en granel, big bags de 1000kg y bolsas de 40kg. Formatos granulado y polvo según su necesidad.</p>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="bg-mineral-800/50 border border-mineral-700 rounded-2xl p-6 md:p-8 hover:border-oro-500/50 transition-all" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-purple-500/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Calidad Certificada</h3>
+                    <p class="text-mineral-400 leading-relaxed">Productos registrados ante SENASA. Calidad garantizada con análisis de laboratorio en cada lote.</p>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="bg-mineral-800/50 border border-mineral-700 rounded-2xl p-6 md:p-8 hover:border-oro-500/50 transition-all" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-red-500/20 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Logística Nacional</h3>
+                    <p class="text-mineral-400 leading-relaxed">Entrega en todo el territorio argentino. Red de distribución optimizada para llegar a su campo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infographic Section -->
+    <section class="py-16 md:py-24 bg-mineral-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23fbbf24\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-oro-400 font-semibold tracking-wider uppercase text-sm">Ciclo de Aplicación</span>
+                <h2 class="font-display text-4xl md:text-5xl text-white mt-3">CÓMO FUNCIONA</h2>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 md:gap-4">
+                <!-- Step 1 -->
+                <div class="relative" data-aos="fade-up" data-aos-delay="0">
+                    <div class="bg-mineral-800 border border-mineral-700 rounded-2xl p-6 text-center h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-oro-400 to-oro-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="font-display text-3xl text-mineral-900">1</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-2">Análisis de Suelo</h4>
+                        <p class="text-mineral-400 text-sm">Evaluamos las características de su suelo para recomendar el producto ideal.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-oro-400 z-10">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-mineral-800 border border-mineral-700 rounded-2xl p-6 text-center h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-campo-400 to-campo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="font-display text-3xl text-white">2</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-2">Aplicación</h4>
+                        <p class="text-mineral-400 text-sm">En línea de siembra, en banda o cobertura total según estrategia.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-oro-400 z-10">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-mineral-800 border border-mineral-700 rounded-2xl p-6 text-center h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-tierra-400 to-tierra-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="font-display text-3xl text-white">3</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-2">Absorción</h4>
+                        <p class="text-mineral-400 text-sm">Los minerales se solubilizan y liberan nutrientes para las raíces.</p>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-oro-400 z-10">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-mineral-800 border border-mineral-700 rounded-2xl p-6 text-center h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="font-display text-3xl text-white">4</span>
+                        </div>
+                        <h4 class="font-bold text-white text-lg mb-2">Resultados</h4>
+                        <p class="text-mineral-400 text-sm">Mayor rendimiento, mejor calidad de cosecha y suelos más productivos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Export Section -->
+    <section id="exportacion" class="py-16 md:py-24 bg-gradient-to-br from-mineral-800 via-mineral-900 to-mineral-800 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+            <svg viewBox="0 0 200 200" class="w-full h-full">
+                <path fill="#fbbf24" d="M100,10 L120,90 L200,100 L120,110 L100,190 L80,110 L0,100 L80,90 Z"/>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-oro-400 font-semibold tracking-wider uppercase text-sm">Alcance Internacional</span>
+                    <h2 class="font-display text-4xl md:text-5xl lg:text-6xl text-white mt-3 mb-6">
+                        EXPORTAMOS AL<br><span class="text-oro-400">MERCOSUR Y AL MUNDO</span>
+                    </h2>
+                    <p class="text-mineral-300 text-lg mb-8 leading-relaxed">
+                        Desde Argentina, llevamos nuestros minerales de alta calidad a productores de toda la región y el mundo. Contamos con la capacidad logística y las certificaciones necesarias para operaciones de comercio exterior.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-campo-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-campo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-white">Brasil</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-campo-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-campo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-white">Uruguay</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-campo-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-campo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-white">Paraguay</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-campo-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-campo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-white">Chile</span>
+                        </div>
+                    </div>
+
+                    <a href="#contacto" class="inline-flex items-center gap-2 bg-oro-500 hover:bg-oro-400 text-mineral-900 px-8 py-4 rounded-lg font-bold transition-all hover:scale-105">
+                        <span>Consultar por Exportación</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div data-aos="fade-left" class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-oro-400/10 to-campo-500/10 rounded-3xl blur-2xl"></div>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                         alt="Logística de exportación"
+                         class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial/Trust Section -->
+    <section class="py-16 md:py-20 bg-mineral-800 border-y border-mineral-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-aos="fade-up">
+                <blockquote class="font-display text-2xl md:text-3xl lg:text-4xl text-white leading-relaxed max-w-4xl mx-auto">
+                    "INVERTIR EN MINERALES DE CALIDAD ES INVERTIR EN EL FUTURO DE SU CAMPO"
+                </blockquote>
+                <div class="mt-6 flex items-center justify-center gap-4">
+                    <div class="h-px w-12 bg-oro-500"></div>
+                    <span class="text-oro-400 font-semibold">ÖKOMIX</span>
+                    <div class="h-px w-12 bg-oro-500"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 md:py-24 bg-mineral-900 relative grain-overlay">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <span class="text-oro-400 font-semibold tracking-wider uppercase text-sm">Contáctenos</span>
+                    <h2 class="font-display text-4xl md:text-5xl text-white mt-3 mb-6">HABLEMOS DE SU PROYECTO</h2>
+                    <p class="text-mineral-300 text-lg mb-8 leading-relaxed">
+                        Estamos listos para asesorarlo sobre la mejor solución para sus cultivos. Complete el formulario o contáctenos directamente.
+                    </p>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-oro-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-oro-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Teléfono</h4>
+                                <a href="tel:+5491100000000" class="text-mineral-400 hover:text-oro-400 transition-colors">+54 9 11 0000-0000</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-campo-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-campo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Email</h4>
+                                <a href="mailto:info@okomix.com.ar" class="text-mineral-400 hover:text-oro-400 transition-colors">info@okomix.com.ar</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-tierra-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-tierra-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white">Ubicación</h4>
+                                <p class="text-mineral-400">Argentina</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp CTA -->
+                    <a href="https://wa.me/5491100000000?text=Hola%2C%20quiero%20información%20sobre%20los%20productos%20de%20Ökomix"
+                       target="_blank"
+                       class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-4 rounded-xl font-semibold transition-all hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span>Escribinos por WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <div class="bg-mineral-800 border border-mineral-700 rounded-2xl p-6 md:p-8">
+                        <h3 class="font-display text-2xl text-white mb-6">SOLICITAR INFORMACIÓN</h3>
+
+                        <form x-data="{
+                            formData: { nombre: '', email: '', telefono: '', empresa: '', producto: '', mensaje: '' },
+                            errors: {},
+                            submitting: false,
+                            validateForm() {
+                                this.errors = {};
+                                if (!this.formData.nombre.trim()) this.errors.nombre = 'El nombre es requerido';
+                                if (!this.formData.email.trim()) this.errors.email = 'El email es requerido';
+                                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email)) this.errors.email = 'Email inválido';
+                                if (!this.formData.telefono.trim()) this.errors.telefono = 'El teléfono es requerido';
+                                if (!this.formData.producto) this.errors.producto = 'Seleccione un producto';
+                                return Object.keys(this.errors).length === 0;
+                            },
+                            submitForm() {
+                                if (this.validateForm()) {
+                                    this.submitting = true;
+                                    // Simulate form submission
+                                    setTimeout(() => {
+                                        this.submitting = false;
+                                        $store.formSubmitted = true;
+                                        alert('¡Gracias por su consulta! Nos comunicaremos a la brevedad.');
+                                        this.formData = { nombre: '', email: '', telefono: '', empresa: '', producto: '', mensaje: '' };
+                                    }, 1500);
+                                }
+                            }
+                        }" @submit.prevent="submitForm" class="space-y-5">
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-sm font-medium text-mineral-300 mb-2">Nombre completo *</label>
+                                    <input type="text" x-model="formData.nombre"
+                                           :class="errors.nombre ? 'border-red-500' : 'border-mineral-600'"
+                                           class="w-full bg-mineral-700 border rounded-lg px-4 py-3 text-white placeholder-mineral-500 focus:outline-none focus:border-oro-500 transition-colors"
+                                           placeholder="Su nombre">
+                                    <p x-show="errors.nombre" x-text="errors.nombre" class="text-red-400 text-sm mt-1"></p>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-mineral-300 mb-2">Email *</label>
+                                    <input type="email" x-model="formData.email"
+                                           :class="errors.email ? 'border-red-500' : 'border-mineral-600'"
+                                           class="w-full bg-mineral-700 border rounded-lg px-4 py-3 text-white placeholder-mineral-500 focus:outline-none focus:border-oro-500 transition-colors"
+                                           placeholder="email@ejemplo.com">
+                                    <p x-show="errors.email" x-text="errors.email" class="text-red-400 text-sm mt-1"></p>
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-sm font-medium text-mineral-300 mb-2">Teléfono *</label>
+                                    <input type="tel" x-model="formData.telefono"
+                                           :class="errors.telefono ? 'border-red-500' : 'border-mineral-600'"
+                                           class="w-full bg-mineral-700 border rounded-lg px-4 py-3 text-white placeholder-mineral-500 focus:outline-none focus:border-oro-500 transition-colors"
+                                           placeholder="+54 9 11 0000-0000">
+                                    <p x-show="errors.telefono" x-text="errors.telefono" class="text-red-400 text-sm mt-1"></p>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-mineral-300 mb-2">Empresa (opcional)</label>
+                                    <input type="text" x-model="formData.empresa"
+                                           class="w-full bg-mineral-700 border border-mineral-600 rounded-lg px-4 py-3 text-white placeholder-mineral-500 focus:outline-none focus:border-oro-500 transition-colors"
+                                           placeholder="Nombre de su empresa">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-mineral-300 mb-2">Producto de interés *</label>
+                                <select x-model="formData.producto"
+                                        :class="errors.producto ? 'border-red-500' : 'border-mineral-600'"
+                                        class="w-full bg-mineral-700 border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-oro-500 transition-colors">
+                                    <option value="">Seleccione un producto</option>
+                                    <option value="yeso">Yeso Agrícola 94%</option>
+                                    <option value="dolomita">Dolomita</option>
+                                    <option value="ambos">Ambos productos</option>
+                                    <option value="exportacion">Consulta por exportación</option>
+                                </select>
+                                <p x-show="errors.producto" x-text="errors.producto" class="text-red-400 text-sm mt-1"></p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-mineral-300 mb-2">Mensaje (opcional)</label>
+                                <textarea x-model="formData.mensaje" rows="4"
+                                          class="w-full bg-mineral-700 border border-mineral-600 rounded-lg px-4 py-3 text-white placeholder-mineral-500 focus:outline-none focus:border-oro-500 transition-colors resize-none"
+                                          placeholder="Cuéntenos sobre su proyecto o consulta..."></textarea>
+                            </div>
+
+                            <button type="submit"
+                                    :disabled="submitting"
+                                    :class="submitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-oro-400 hover:scale-[1.02]'"
+                                    class="w-full bg-oro-500 text-mineral-900 py-4 rounded-lg font-bold text-lg transition-all flex items-center justify-center gap-2">
+                                <span x-show="!submitting">Enviar Consulta</span>
+                                <span x-show="submitting" class="flex items-center gap-2">
+                                    <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    Enviando...
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-mineral-800 border-t border-mineral-700 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Logo & Description -->
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 relative">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <defs>
+                                    <linearGradient id="logoGradF1" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#2E5930"/>
+                                        <stop offset="100%" style="stop-color:#4A7C4E"/>
+                                    </linearGradient>
+                                    <linearGradient id="logoGradF2" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#B8860B"/>
+                                        <stop offset="100%" style="stop-color:#D4A017"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M12 32L24 38L36 32L36 24L24 18L12 24Z" fill="url(#logoGradF2)"/>
+                                <path d="M14 26L24 31L34 26L34 20L24 14L14 20Z" fill="url(#logoGradF1)"/>
+                                <path d="M18 18L24 8L30 18L24 22Z" fill="#4A7C4E"/>
+                                <path d="M24 8L27 14L24 12L21 14Z" fill="#6B9E6F" opacity="0.8"/>
+                                <path d="M24 18V31M14 20L24 14L34 20" stroke="#1a3d1c" stroke-width="0.5" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col leading-none">
+                            <span class="font-display text-2xl text-white tracking-wide">ÖKOMIX</span>
+                            <span class="text-[8px] text-campo-400 tracking-[0.2em] font-medium">MINERALES AGRÍCOLAS</span>
+                        </div>
+                    </a>
+                    <p class="text-mineral-400 max-w-md leading-relaxed">
+                        Producción de minerales de alta pureza para la agricultura. Yeso Agrícola 94% y Dolomita para maximizar el rendimiento de sus cultivos.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#productos" class="text-mineral-400 hover:text-oro-400 transition-colors">Productos</a></li>
+                        <li><a href="#beneficios" class="text-mineral-400 hover:text-oro-400 transition-colors">Beneficios</a></li>
+                        <li><a href="#exportacion" class="text-mineral-400 hover:text-oro-400 transition-colors">Exportación</a></li>
+                        <li><a href="#contacto" class="text-mineral-400 hover:text-oro-400 transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-mineral-400">
+                        <li>+54 9 11 0000-0000</li>
+                        <li>info@okomix.com.ar</li>
+                        <li>Argentina</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-mineral-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-mineral-500 text-sm">© 2024 Ökomix. Todos los derechos reservados.</p>
+                <p class="text-mineral-500 text-sm">Minerales 100% naturales de origen argentino</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5491100000000?text=Hola%2C%20quiero%20información%20sobre%20los%20productos%20de%20Ökomix"
+       target="_blank"
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] hover:bg-[#20bd5a] rounded-full flex items-center justify-center shadow-lg whatsapp-pulse transition-transform hover:scale-110">
+        <svg class="w-7 h-7 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    </script>
+</body>
+</html>
