@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:www.rocafertil.com.ar)"
+      "WebFetch(domain:www.rocafertil.com.ar)",
+      "Bash(colima status:*)",
+      "Bash(brew uninstall:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh api:*)"
     ]
   }
 }
