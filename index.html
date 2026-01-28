@@ -10,224 +10,48 @@
     <meta name="keywords" content="yeso agrícola, dolomita, fertilizantes naturales, corrector de suelos, Argentina, exportación, Mercosur">
     <title>Ökomix | Yeso Agrícola 94% y Dolomita Premium</title>
 
-    <!-- Fonts -->
+    <!-- Critical CSS for instant loader -->
+    <style>
+        #loader{position:fixed;inset:0;z-index:100;background:#0d1117;display:flex;align-items:center;justify-content:center;transition:opacity .5s}
+        #loader .flex{display:flex;flex-direction:column;align-items:center;gap:1rem}
+        #loader .logo{width:4rem;height:4rem;animation:pulse 2s infinite}
+        #loader .spinner{width:2rem;height:2rem;border:2px solid #f59e0b;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        body{margin:0;background:#0d1117}
+    </style>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="images/hero-bg.jpg" as="image">
+    <link rel="preload" href="css/styles.css" as="style">
+
+    <!-- Fonts (async) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS (async) -->
+    <script async src="https://cdn.tailwindcss.com"></script>
+    <script async src="js/main.js"></script>
+
+    <!-- Custom Styles (async) -->
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'">
+
+    <!-- AOS Animations (async) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- AOS Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'tierra': {
-                            50: '#faf6f1',
-                            100: '#f0e6d8',
-                            200: '#e0ccb0',
-                            300: '#ccab80',
-                            400: '#b8895a',
-                            500: '#a67542',
-                            600: '#8f5f36',
-                            700: '#74492e',
-                            800: '#5f3c2a',
-                            900: '#503326',
-                        },
-                        'campo': {
-                            50: '#f4f9f4',
-                            100: '#e6f2e6',
-                            200: '#cee5cf',
-                            300: '#a6d0a8',
-                            400: '#76b379',
-                            500: '#539456',
-                            600: '#407943',
-                            700: '#356138',
-                            800: '#2d4e2f',
-                            900: '#264028',
-                        },
-                        'oro': {
-                            50: '#fffbeb',
-                            100: '#fef3c7',
-                            200: '#fde68a',
-                            300: '#fcd34d',
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
-                            800: '#92400e',
-                            900: '#78350f',
-                        },
-                        'mineral': {
-                            50: '#f8f9fa',
-                            100: '#e9ecef',
-                            200: '#dee2e6',
-                            300: '#ced4da',
-                            400: '#adb5bd',
-                            500: '#6c757d',
-                            600: '#495057',
-                            700: '#343a40',
-                            800: '#212529',
-                            900: '#0d1117',
-                        }
-                    },
-                    fontFamily: {
-                        'display': ['Bebas Neue', 'sans-serif'],
-                        'body': ['Source Sans 3', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        [x-cloak] { display: none !important; }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        html, body {
-            overflow-x: hidden;
-            max-width: 100%;
-        }
-
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-        }
-
-        .font-display {
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 0.05em;
-        }
-
-        /* Hero background with overlay */
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(13, 17, 23, 0.92) 0%, rgba(45, 78, 47, 0.85) 100%),
-                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        /* Disable fixed background on mobile (causes issues on iOS) */
-        @media (max-width: 768px) {
-            .hero-bg {
-                background-attachment: scroll;
-            }
-        }
-
-        /* Grain texture overlay */
-        .grain-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-        }
-
-        /* Animated gradient border */
-        .gradient-border {
-            position: relative;
-            background: linear-gradient(135deg, #f59e0b, #539456, #a67542);
-            padding: 3px;
-            border-radius: 12px;
-        }
-
-        .gradient-border-inner {
-            background: #0d1117;
-            border-radius: 10px;
-        }
-
-        /* Stats counter animation */
-        .stat-number {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Product cards hover */
-        .product-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-        }
-
-        /* WhatsApp button pulse */
-        @keyframes pulse-green {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-        }
-
-        .whatsapp-pulse {
-            animation: pulse-green 2s infinite;
-        }
-
-        /* Infographic items */
-        .benefit-item {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .benefit-item::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #fbbf24;
-            font-weight: bold;
-        }
-
-        /* Mobile menu */
-        .mobile-menu {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        /* Scroll indicator */
-        @keyframes bounce-down {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-
-        .scroll-indicator {
-            animation: bounce-down 2s infinite;
-        }
-
-        /* Section divider */
-        .section-divider {
-            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
-            height: 2px;
-        }
-    </style>
 </head>
 
 <body class="bg-mineral-900 text-white" x-data="{ mobileMenuOpen: false, formSubmitted: false }">
 
-    <!-- Loading Screen -->
-    <div id="loader" class="fixed inset-0 z-[100] bg-mineral-900 flex items-center justify-center transition-opacity duration-500">
-        <div class="flex flex-col items-center gap-4">
-            <!-- Logo animado -->
-            <div class="w-16 h-16 animate-pulse">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+    <!-- Loading Screen (uses critical inline CSS, no Tailwind dependency) -->
+    <div id="loader">
+        <div class="flex">
+            <div class="logo">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
                     <circle cx="24" cy="24" r="23" fill="#343a40"/>
                     <rect x="12" y="27" width="24" height="3" rx="1" fill="#b8895a"/>
                     <rect x="12" y="31" width="24" height="3" rx="1" fill="#8f5f36"/>
@@ -238,7 +62,7 @@
                     <path d="M24 17 Q19 12 15 17 Q19 20 24 17" fill="#a6d0a8"/>
                 </svg>
             </div>
-            <div class="w-8 h-8 border-2 border-oro-500 border-t-transparent rounded-full animate-spin"></div>
+            <div class="spinner"></div>
         </div>
     </div>
 
@@ -250,18 +74,13 @@
                 <a href="#" class="flex items-center gap-3">
                     <div class="w-12 h-12 md:w-14 md:h-14 relative">
                         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                            <!-- Fondo circular gris oscuro -->
                             <circle cx="24" cy="24" r="23" fill="#343a40"/>
-                            <!-- Capas de suelo -->
                             <rect x="12" y="27" width="24" height="3" rx="1" fill="#b8895a"/>
                             <rect x="12" y="31" width="24" height="3" rx="1" fill="#8f5f36"/>
                             <rect x="12" y="35" width="24" height="4" rx="1" fill="#5f3c2a"/>
-                            <!-- Tallo -->
                             <path d="M24 37 Q23 30 24 24 Q25 18 24 10" stroke="#539456" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            <!-- Hojas superiores -->
                             <path d="M24 10 Q18 5 13 10 Q18 14 24 10" fill="#76b379"/>
                             <path d="M24 10 Q29 4 35 8 Q30 13 24 10" fill="#539456"/>
-                            <!-- Pequeña hoja emergiendo -->
                             <path d="M24 17 Q19 12 15 17 Q19 20 24 17" fill="#a6d0a8"/>
                         </svg>
                     </div>
@@ -344,9 +163,11 @@
                 <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" class="hidden lg:block">
                     <div class="relative">
                         <div class="absolute -inset-4 bg-gradient-to-r from-oro-400/20 to-campo-500/20 rounded-3xl blur-2xl"></div>
-                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        <img src="images/campo-cultivo.jpg"
                              alt="Campo de cultivo próspero"
-                             class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]">
+                             class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+                             loading="eager"
+                             fetchpriority="high">
 
                         <!-- Floating stats card -->
                         <div class="absolute -bottom-6 -left-6 bg-mineral-800/95 backdrop-blur border border-mineral-700 rounded-xl p-4 shadow-xl">
@@ -423,7 +244,6 @@
                                 <p class="text-oro-400 font-bold text-xl mt-1">94% de Pureza</p>
                             </div>
                             <div class="w-16 h-16 bg-gradient-to-br from-tierra-400 to-tierra-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <!-- Ícono Cubo/Mineral -->
                                 <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                                 </svg>
@@ -498,7 +318,6 @@
                                 <p class="text-campo-400 font-bold text-xl mt-1">Alta Pureza</p>
                             </div>
                             <div class="w-16 h-16 bg-gradient-to-br from-campo-400 to-campo-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <!-- Ícono Balanza/Equilibrio -->
                                 <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
                                 </svg>
@@ -660,17 +479,13 @@
                     <!-- Step 1 -->
                     <div class="relative" data-aos="fade-up" data-aos-delay="0">
                         <div class="flex flex-col items-center text-center">
-                            <!-- Icon Circle -->
                             <div class="relative z-10 w-20 h-20 bg-mineral-800 border-2 border-oro-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-oro-500/20">
                                 <svg class="w-10 h-10 text-oro-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                                 </svg>
                             </div>
-                            <!-- Step Number -->
                             <span class="text-oro-400 font-display text-sm tracking-wider mb-2">PASO 01</span>
-                            <!-- Title -->
                             <h4 class="font-bold text-white text-lg mb-2">Análisis de Suelo</h4>
-                            <!-- Description -->
                             <p class="text-mineral-400 text-sm leading-relaxed">Evaluamos su suelo para recomendar el producto ideal</p>
                         </div>
                     </div>
@@ -678,17 +493,13 @@
                     <!-- Step 2 -->
                     <div class="relative" data-aos="fade-up" data-aos-delay="100">
                         <div class="flex flex-col items-center text-center">
-                            <!-- Icon Circle -->
                             <div class="relative z-10 w-20 h-20 bg-mineral-800 border-2 border-oro-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-oro-500/20">
                                 <svg class="w-10 h-10 text-oro-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
                                 </svg>
                             </div>
-                            <!-- Step Number -->
                             <span class="text-oro-400 font-display text-sm tracking-wider mb-2">PASO 02</span>
-                            <!-- Title -->
                             <h4 class="font-bold text-white text-lg mb-2">Aplicación</h4>
-                            <!-- Description -->
                             <p class="text-mineral-400 text-sm leading-relaxed">En línea de siembra, banda o cobertura total</p>
                         </div>
                     </div>
@@ -696,17 +507,13 @@
                     <!-- Step 3 -->
                     <div class="relative" data-aos="fade-up" data-aos-delay="200">
                         <div class="flex flex-col items-center text-center">
-                            <!-- Icon Circle -->
                             <div class="relative z-10 w-20 h-20 bg-mineral-800 border-2 border-oro-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-oro-500/20">
                                 <svg class="w-10 h-10 text-oro-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                                 </svg>
                             </div>
-                            <!-- Step Number -->
                             <span class="text-oro-400 font-display text-sm tracking-wider mb-2">PASO 03</span>
-                            <!-- Title -->
                             <h4 class="font-bold text-white text-lg mb-2">Absorción</h4>
-                            <!-- Description -->
                             <p class="text-mineral-400 text-sm leading-relaxed">Los minerales liberan nutrientes para las raíces</p>
                         </div>
                     </div>
@@ -714,17 +521,13 @@
                     <!-- Step 4 -->
                     <div class="relative" data-aos="fade-up" data-aos-delay="300">
                         <div class="flex flex-col items-center text-center">
-                            <!-- Icon Circle -->
                             <div class="relative z-10 w-20 h-20 bg-mineral-800 border-2 border-oro-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-oro-500/20">
                                 <svg class="w-10 h-10 text-oro-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                                 </svg>
                             </div>
-                            <!-- Step Number -->
                             <span class="text-oro-400 font-display text-sm tracking-wider mb-2">PASO 04</span>
-                            <!-- Title -->
                             <h4 class="font-bold text-white text-lg mb-2">Resultados</h4>
-                            <!-- Description -->
                             <p class="text-mineral-400 text-sm leading-relaxed">Mayor rendimiento y suelos más productivos</p>
                         </div>
                     </div>
@@ -797,9 +600,10 @@
 
                 <div data-aos="fade-left" class="relative">
                     <div class="absolute -inset-4 bg-gradient-to-r from-oro-400/10 to-campo-500/10 rounded-3xl blur-2xl"></div>
-                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    <img src="images/transporte.jpg"
                          alt="Transporte de productos agrícolas"
-                         class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]">
+                         class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+                         loading="lazy">
                 </div>
             </div>
         </div>
@@ -904,7 +708,6 @@
                             submitForm() {
                                 if (this.validateForm()) {
                                     this.submitting = true;
-                                    // Simulate form submission
                                     setTimeout(() => {
                                         this.submitting = false;
                                         $store.formSubmitted = true;
@@ -1003,18 +806,13 @@
                     <a href="#" class="flex items-center gap-3 mb-4">
                         <div class="w-12 h-12 relative">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                                <!-- Fondo circular gris oscuro -->
                                 <circle cx="24" cy="24" r="23" fill="#343a40"/>
-                                <!-- Capas de suelo -->
                                 <rect x="12" y="27" width="24" height="3" rx="1" fill="#b8895a"/>
                                 <rect x="12" y="31" width="24" height="3" rx="1" fill="#8f5f36"/>
                                 <rect x="12" y="35" width="24" height="4" rx="1" fill="#5f3c2a"/>
-                                <!-- Tallo -->
                                 <path d="M24 37 Q23 30 24 24 Q25 18 24 10" stroke="#539456" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                                <!-- Hojas superiores -->
                                 <path d="M24 10 Q18 5 13 10 Q18 14 24 10" fill="#76b379"/>
                                 <path d="M24 10 Q29 4 35 8 Q30 13 24 10" fill="#539456"/>
-                                <!-- Pequeña hoja emergiendo -->
                                 <path d="M24 17 Q19 12 15 17 Q19 20 24 17" fill="#a6d0a8"/>
                             </svg>
                         </div>
@@ -1065,24 +863,5 @@
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
     </a>
-
-    <!-- Initialize AOS -->
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 50
-        });
-    </script>
-
-    <!-- Hide loader when page is fully loaded -->
-    <script>
-        window.addEventListener('load', function() {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 500);
-        });
-    </script>
 </body>
 </html>
