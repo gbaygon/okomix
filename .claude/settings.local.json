@@ -5,7 +5,10 @@
       "Bash(colima status:*)",
       "Bash(brew uninstall:*)",
       "Bash(gh repo view:*)",
-      "Bash(gh api:*)"
+      "Bash(gh api:*)",
+      "Bash(file:*)",
+      "Bash(sips:*)",
+      "Bash(cjpeg:*)"
     ]
   }
 }
