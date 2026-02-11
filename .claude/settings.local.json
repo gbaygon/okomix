@@ -14,7 +14,10 @@
       "WebFetch(domain:fertimax.com.mx)",
       "WebFetch(domain:www.calidra.com)",
       "WebFetch(domain:www.silminiberica.com)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "WebFetch(domain:formsubmit.co)",
+      "WebFetch(domain:www.formsubmit.co)",
+      "WebFetch(domain:web3forms.com)"
     ]
   }
 }

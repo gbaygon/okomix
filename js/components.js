@@ -73,18 +73,18 @@ class OkomixNav extends HTMLElement {
 
         /* Análisis link (desktop + mobile) */
         const analisisDesktop = analisisActive
-            ? '<a href="' + analisisHref + '" class="' + activeCls + ' font-medium">Análisis</a>'
-            : '<a href="' + analisisHref + '" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Análisis</a>';
+            ? '<a href="' + analisisHref + '" data-umami-event="nav-click" data-umami-event-item="analisis" class="' + activeCls + ' font-medium">Análisis</a>'
+            : '<a href="' + analisisHref + '" data-umami-event="nav-click" data-umami-event-item="analisis" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Análisis</a>';
 
         const analisisMobile = analisisActive
-            ? '<a href="' + analisisHref + '" @click="mobileMenuOpen = false" class="block py-3 px-4 ' + activeCls + ' hover:bg-mineral-700 rounded-lg font-medium">Análisis</a>'
-            : '<a href="' + analisisHref + '" @click="mobileMenuOpen = false" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Análisis</a>';
+            ? '<a href="' + analisisHref + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="analisis" class="block py-3 px-4 ' + activeCls + ' hover:bg-mineral-700 rounded-lg font-medium">Análisis</a>'
+            : '<a href="' + analisisHref + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="analisis" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Análisis</a>';
 
         this.innerHTML = '<nav class="fixed top-0 inset-x-0 z-50 bg-mineral-900/95 backdrop-blur-md border-b border-mineral-800" x-data="{ mobileMenuOpen: false }">'
             + '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">'
             + '<div class="flex justify-between items-center h-24">'
             /* Logo */
-            + '<a href="' + logoHref + '" class="flex items-center gap-3">'
+            + '<a href="' + logoHref + '" data-umami-event="nav-logo" class="flex items-center gap-3">'
             +   '<div class="w-16 h-16 relative">'
             +     '<img src="images/logo.png" alt="Ökomix" class="w-full h-full object-contain relative bottom-[3px]">'
             +   '</div>'
@@ -95,11 +95,11 @@ class OkomixNav extends HTMLElement {
             + '</a>'
             /* Desktop menu */
             + '<div class="hidden md:flex items-center gap-8">'
-            +   '<a href="' + anchor('productos') + '" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Productos</a>'
-            +   '<a href="' + anchor('beneficios') + '" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Beneficios</a>'
-            +   '<a href="' + anchor('exportacion') + '" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Exportación</a>'
+            +   '<a href="' + anchor('productos') + '" data-umami-event="nav-click" data-umami-event-item="productos" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Productos</a>'
+            +   '<a href="' + anchor('beneficios') + '" data-umami-event="nav-click" data-umami-event-item="beneficios" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Beneficios</a>'
+            +   '<a href="' + anchor('exportacion') + '" data-umami-event="nav-click" data-umami-event-item="exportacion" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Exportación</a>'
             +   analisisDesktop
-            +   '<a href="' + anchor('contacto') + '" class="' + ctaClasses + ' px-6 py-2.5 rounded-lg font-semibold transition-all hover:scale-105">Contactar</a>'
+            +   '<a href="' + anchor('contacto') + '" data-umami-event="nav-click" data-umami-event-item="contacto" class="' + ctaClasses + ' px-6 py-2.5 rounded-lg font-semibold transition-all hover:scale-105">Contactar</a>'
             + '</div>'
             /* Mobile hamburger */
             + '<button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 text-white">'
@@ -117,11 +117,11 @@ class OkomixNav extends HTMLElement {
             + ' x-transition:leave-end="opacity-0 -translate-y-4"'
             + ' class="mobile-menu md:hidden bg-mineral-800/98 border-b border-mineral-700">'
             + '<div class="px-4 py-4 space-y-3">'
-            +   '<a href="' + anchor('productos') + '" @click="mobileMenuOpen = false" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Productos</a>'
-            +   '<a href="' + anchor('beneficios') + '" @click="mobileMenuOpen = false" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Beneficios</a>'
-            +   '<a href="' + anchor('exportacion') + '" @click="mobileMenuOpen = false" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Exportación</a>'
+            +   '<a href="' + anchor('productos') + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="productos" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Productos</a>'
+            +   '<a href="' + anchor('beneficios') + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="beneficios" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Beneficios</a>'
+            +   '<a href="' + anchor('exportacion') + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="exportacion" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Exportación</a>'
             +   analisisMobile
-            +   '<a href="' + anchor('contacto') + '" @click="mobileMenuOpen = false" class="block py-3 px-4 ' + mobileCtaClasses + ' rounded-lg text-center font-semibold">Contactar</a>'
+            +   '<a href="' + anchor('contacto') + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="contacto" class="block py-3 px-4 ' + mobileCtaClasses + ' rounded-lg text-center font-semibold">Contactar</a>'
             + '</div></div>'
             + '</nav>';
     }
@@ -139,7 +139,7 @@ class OkomixFooter extends HTMLElement {
         const hoverCls = 'hover:text-' + color + '-400';
 
         const linksHtml = data.links
-            .map(function(l) { return '<li><a href="' + l.href + '" class="text-mineral-400 ' + hoverCls + ' transition-colors">' + l.text + '</a></li>'; })
+            .map(function(l) { return '<li><a href="' + l.href + '" data-umami-event="footer-link" data-umami-event-item="' + l.text.toLowerCase().replace(/\s+/g, '-') + '" class="text-mineral-400 ' + hoverCls + ' transition-colors">' + l.text + '</a></li>'; })
             .join('');
 
         this.innerHTML = '<footer class="bg-mineral-800 border-t border-mineral-700 py-12">'
@@ -191,6 +191,7 @@ class OkomixWhatsapp extends HTMLElement {
         var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
 
         this.innerHTML = '<a href="' + url + '" target="_blank"'
+            + ' data-umami-event="contact-whatsapp" data-umami-event-source="floating"'
             + ' class="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] hover:bg-[#20bd5a] rounded-full flex items-center justify-center shadow-lg whatsapp-pulse transition-transform hover:scale-110">'
             + '<svg class="w-7 h-7 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">'
             + WHATSAPP_SVG

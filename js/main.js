@@ -27,4 +27,21 @@ window.addEventListener('load', function() {
             loader.style.display = 'none';
         }, 500);
     }
+
+    // Scroll section tracking con Umami
+    if (window.umami) {
+        const sections = ['hero','productos','beneficios','exportacion','contacto'];
+        const obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    umami.track('section-view', { section: e.target.id });
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        sections.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) obs.observe(el);
+        });
+    }
 });
