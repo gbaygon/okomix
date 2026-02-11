@@ -42,7 +42,12 @@ export function routerData() {
                 if (raw) {
                     this.$nextTick(() => {
                         var el = document.getElementById(raw);
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                        if (el) {
+                            el.scrollIntoView({ behavior: 'smooth' });
+                            setTimeout(function() {
+                                if (window.AOS) AOS.refresh();
+                            }, 600);
+                        }
                     });
                 }
             }

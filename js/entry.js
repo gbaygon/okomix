@@ -1,11 +1,12 @@
-// AOS — must be global for main.js
+// AOS — init immediately (defer scripts run after DOM parsing, so DOM is ready)
 import AOS from 'aos';
 window.AOS = AOS;
+AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
 
 // Web Components — must register before Alpine scans the DOM
 import './components.js';
 
-// App init (AOS.init + loader + Umami tracking)
+// App init (loader + Umami tracking)
 import './main.js';
 
 // SPA Router
