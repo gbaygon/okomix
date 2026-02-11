@@ -10,7 +10,7 @@
     "build:css": "tailwindcss -i css/tailwind-input.css -o dist/css/_tw.css --minify && cat dist/css/_tw.css css/styles.css > dist/css/styles.min.css && rm dist/css/_tw.css",
     "build:js": "esbuild js/entry.js --bundle --minify --target=es2020 --outfile=dist/js/bundle.min.js",
     "build:html": "node scripts/build-html.js",
-    "build:assets": "cp -r images dist/images && cp CNAME dist/",
+    "build:assets": "cp -r images dist/images && cp -r docs dist/docs && cp CNAME dist/",
     "build": "rm -rf dist && mkdir -p dist/css dist/js && npm run build:css && npm run build:js && npm run build:html && npm run build:assets",
     "dev": "tailwindcss -i css/tailwind-input.css -o css/tailwind.css --watch"
   },
