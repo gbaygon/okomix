@@ -14,7 +14,9 @@
     <style>
         #loader{position:fixed;inset:0;z-index:100;background:#0d1117;display:flex;align-items:center;justify-content:center;transition:opacity .5s}
         #loader .flex{display:flex;flex-direction:column;align-items:center;gap:1rem}
-        #loader .logo{width:4rem;height:4rem;animation:pulse 2s infinite}
+        #loader .logo{width:6.4rem;height:6.4rem;animation:pulse 2s infinite}
+        #loader .brand{font-family:'Bebas Neue',sans-serif;font-size:2.25rem;color:#fff;letter-spacing:0.05em;line-height:1}
+        #loader .subtitle{font-size:0.65rem;color:#539456;letter-spacing:0.2em;font-weight:500}
         #loader .spinner{width:2rem;height:2rem;border:2px solid #539456;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
         @keyframes spin{to{transform:rotate(360deg)}}
@@ -27,23 +29,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'tierra': { 50: '#faf6f1', 100: '#f0e6d8', 200: '#e0ccb0', 300: '#ccab80', 400: '#b8895a', 500: '#a67542', 600: '#8f5f36', 700: '#74492e', 800: '#5f3c2a', 900: '#503326' },
-                        'campo': { 50: '#f4f9f4', 100: '#e6f2e6', 200: '#cee5cf', 300: '#a6d0a8', 400: '#76b379', 500: '#539456', 600: '#407943', 700: '#356138', 800: '#2d4e2f', 900: '#264028' },
-                        'oro': { 50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309', 800: '#92400e', 900: '#78350f' },
-                        'mineral': { 50: '#f8f9fa', 100: '#e9ecef', 200: '#dee2e6', 300: '#ced4da', 400: '#adb5bd', 500: '#6c757d', 600: '#495057', 700: '#343a40', 800: '#212529', 900: '#0d1117' }
-                    },
-                    fontFamily: { 'display': ['Bebas Neue', 'sans-serif'], 'body': ['Source Sans 3', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind CSS (compiled) -->
+    <link rel="stylesheet" href="css/tailwind.css">
     <script defer src="js/components.js"></script>
     <script defer src="js/main.js"></script>
 
@@ -66,6 +53,8 @@
             <div class="logo">
                 <img src="images/logo.png" alt="Ökomix" style="width:100%;height:100%;object-fit:contain;position:relative;bottom:3px">
             </div>
+            <div class="brand">ÖKOMIX</div>
+            <div class="subtitle">MINERALES AGRÍCOLAS</div>
             <div class="spinner"></div>
         </div>
     </div>

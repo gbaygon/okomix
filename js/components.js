@@ -58,27 +58,15 @@ class OkomixNav extends HTMLElement {
         const isHome      = page === 'home';
         const logoHref    = isHome ? '#' : 'index.html';
         const anchor      = (id) => isHome ? '#' + id : 'index.html#' + id;
-        const analisisHref = page === 'analisis-dolomita' ? 'analisis-dolomita.html' : 'analisis.html';
-        const analisisActive = !isHome;
 
         /* Color-dependent tokens */
         const hoverCls   = 'hover:text-' + color + '-400';
-        const activeCls  = 'text-' + color + '-400';
         const ctaClasses = color === 'oro'
             ? 'bg-oro-500 hover:bg-oro-600 text-mineral-900'
             : 'bg-campo-500 hover:bg-campo-600 text-white';
         const mobileCtaClasses = color === 'oro'
             ? 'bg-oro-500 text-mineral-900'
             : 'bg-campo-500 text-white';
-
-        /* Análisis link (desktop + mobile) */
-        const analisisDesktop = analisisActive
-            ? '<a href="' + analisisHref + '" data-umami-event="nav-click" data-umami-event-item="analisis" class="' + activeCls + ' font-medium">Análisis</a>'
-            : '<a href="' + analisisHref + '" data-umami-event="nav-click" data-umami-event-item="analisis" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Análisis</a>';
-
-        const analisisMobile = analisisActive
-            ? '<a href="' + analisisHref + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="analisis" class="block py-3 px-4 ' + activeCls + ' hover:bg-mineral-700 rounded-lg font-medium">Análisis</a>'
-            : '<a href="' + analisisHref + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="analisis" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Análisis</a>';
 
         this.innerHTML = '<nav class="fixed top-0 inset-x-0 z-50 bg-mineral-900/95 backdrop-blur-md border-b border-mineral-800" x-data="{ mobileMenuOpen: false }">'
             + '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">'
@@ -98,7 +86,6 @@ class OkomixNav extends HTMLElement {
             +   '<a href="' + anchor('productos') + '" data-umami-event="nav-click" data-umami-event-item="productos" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Productos</a>'
             +   '<a href="' + anchor('beneficios') + '" data-umami-event="nav-click" data-umami-event-item="beneficios" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Beneficios</a>'
             +   '<a href="' + anchor('exportacion') + '" data-umami-event="nav-click" data-umami-event-item="exportacion" class="text-mineral-300 ' + hoverCls + ' transition-colors font-medium">Exportación</a>'
-            +   analisisDesktop
             +   '<a href="' + anchor('contacto') + '" data-umami-event="nav-click" data-umami-event-item="contacto" class="' + ctaClasses + ' px-6 py-2.5 rounded-lg font-semibold transition-all hover:scale-105">Contactar</a>'
             + '</div>'
             /* Mobile hamburger */
@@ -120,7 +107,6 @@ class OkomixNav extends HTMLElement {
             +   '<a href="' + anchor('productos') + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="productos" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Productos</a>'
             +   '<a href="' + anchor('beneficios') + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="beneficios" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Beneficios</a>'
             +   '<a href="' + anchor('exportacion') + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="exportacion" class="block py-3 px-4 text-mineral-200 hover:bg-mineral-700 rounded-lg">Exportación</a>'
-            +   analisisMobile
             +   '<a href="' + anchor('contacto') + '" @click="mobileMenuOpen = false" data-umami-event="nav-click" data-umami-event-item="contacto" class="block py-3 px-4 ' + mobileCtaClasses + ' rounded-lg text-center font-semibold">Contactar</a>'
             + '</div></div>'
             + '</nav>';
