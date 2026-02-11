@@ -8,7 +8,13 @@
       "Bash(gh api:*)",
       "Bash(file:*)",
       "Bash(sips:*)",
-      "Bash(cjpeg:*)"
+      "Bash(cjpeg:*)",
+      "WebFetch(domain:www.abonosconagricola.com)",
+      "WebFetch(domain:agroactivocol.com)",
+      "WebFetch(domain:fertimax.com.mx)",
+      "WebFetch(domain:www.calidra.com)",
+      "WebFetch(domain:www.silminiberica.com)",
+      "Bash(git commit:*)"
     ]
   }
 }
