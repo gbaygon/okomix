@@ -159,7 +159,7 @@ class OkomixFooter extends HTMLElement {
             +   '<h4 class="font-semibold text-white mb-4">Contacto</h4>'
             +   '<ul class="space-y-2 text-mineral-400">'
             +     '<li>' + WHATSAPP_PHONE + '</li>'
-            +     '<li>info@okomix.com.ar</li>'
+            +     '<li>okomixminerales@gmail.com</li>'
             +     '<li>Argentina</li>'
             +   '</ul>'
             + '</div>'
