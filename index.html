@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="b9a6799c-b947-4b66-ad5d-ccc9d559dc0d" data-domains="okomix.com,www.okomix.com"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="b9a6799c-b947-4b66-ad5d-ccc9d559dc0d" data-domains="okomix.com,www.okomix.com" data-auto-track="false"></script>
     <meta name="description" content="Ökomix - Yeso Agrícola y Dolomita de alta pureza. Mejore el rendimiento de sus cultivos con minerales de origen natural. Exportamos a Mercosur y el mundo.">
     <meta name="keywords" content="yeso agrícola, dolomita, fertilizantes naturales, corrector de suelos, Argentina, exportación, Mercosur">
     <title>Ökomix | Yeso Agrícola y Dolomita Premium</title>
@@ -73,7 +73,7 @@
     <div x-show="currentPage === 'home'" x-cloak>
 
     <!-- Hero Section -->
-    <section class="hero-bg relative min-h-screen flex items-center grain-overlay overflow-hidden">
+    <section id="hero" class="hero-bg relative min-h-screen flex items-center grain-overlay overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right" data-aos-duration="1000">
@@ -1315,6 +1315,6 @@
     <okomix-footer :page="currentPage" :color="navColor"></okomix-footer>
 
     <!-- Floating WhatsApp Button -->
-    <okomix-whatsapp :message="whatsappMessage"></okomix-whatsapp>
+    <okomix-whatsapp :message="whatsappMessage" :page="currentPage"></okomix-whatsapp>
 </body>
 </html>

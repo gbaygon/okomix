@@ -26,6 +26,9 @@ export function routerData() {
             window.addEventListener('hashchange', () => {
                 this._navigate(window.location.hash);
             });
+            // Manual initial pageview (auto-track disabled to prevent
+            // hash fragments from creating false short-duration pageviews)
+            this._trackPageview();
         },
 
         _navigate(hash) {
@@ -54,6 +57,17 @@ export function routerData() {
             this._updateMeta();
         },
 
+        _trackPageview() {
+            if (window.umami) {
+                var pagePath = this.currentPage === 'home' ? '/' : '/' + this.currentPage;
+                if (!this._initialTracked) {
+                    this._initialTracked = true;
+                    if (window.location.search) pagePath += window.location.search;
+                }
+                umami.track(function(props) { return Object.assign({}, props, { url: pagePath }); });
+            }
+        },
+
         _onPageChange() {
             // 'instant' overrides CSS scroll-behavior:smooth
             // so it doesn't fight with a subsequent scrollIntoView
@@ -66,11 +80,7 @@ export function routerData() {
                 if (window.AOS) {
                     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
                 }
-                // Umami virtual pageview
-                if (window.umami) {
-                    var pagePath = this.currentPage === 'home' ? '/' : '/' + this.currentPage;
-                    umami.track(function(props) { return Object.assign({}, props, { url: pagePath }); });
-                }
+                this._trackPageview();
             });
         },
 

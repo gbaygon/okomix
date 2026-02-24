@@ -177,16 +177,18 @@ class OkomixFooter extends HTMLElement {
    <okomix-whatsapp :message="whatsappMessage">
    ========================================================================= */
 class OkomixWhatsapp extends HTMLElement {
-    static get observedAttributes() { return ['message']; }
+    static get observedAttributes() { return ['message', 'page']; }
     connectedCallback() { this._render(); }
     attributeChangedCallback() { if (this.isConnected) this._render(); }
 
     _render() {
         var msg = this.getAttribute('message') || 'Hola, quiero información sobre los productos de Ökomix';
+        var page = this.getAttribute('page') || 'home';
         var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
 
         this.innerHTML = '<a href="' + url + '" target="_blank"'
             + ' data-umami-event="contact-whatsapp" data-umami-event-source="floating"'
+            + ' data-umami-event-page="' + page + '"'
             + ' class="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] hover:bg-[#20bd5a] rounded-full flex items-center justify-center shadow-lg whatsapp-pulse transition-transform hover:scale-110">'
             + '<svg class="w-7 h-7 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">'
             + WHATSAPP_SVG
