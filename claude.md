@@ -170,7 +170,7 @@ Esto es **crítico** — los usuarios están en conexiones rurales lentas.
 - **Productos**: Yeso Agrícola (94% pureza) y Dolomita
 - Registrado en **SENASA**
 - Contacto: WhatsApp y formulario (sin backend real aún)
-- Email: okomixminerales@gmail.com
+- Email: comercial@okomix.com
 - Idioma del sitio: español (es)
 
 ## Al hacer cambios
